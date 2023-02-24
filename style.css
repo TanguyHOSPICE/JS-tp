@@ -1,0 +1,19 @@
+body {
+	overflow: hidden; /*Pour que les bulles ne casse pas le code*/
+	min-height: 100vh;
+}
+.bubble {
+	position: absolute;
+	border-radius: 50%;
+	background: linear-gradient(to right, #d7dde8, #757f9a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	opacity: 0;
+	animation: upAndDown 8s forwards;
+}
+@keyframes upAndDown {
+	to {
+		top: -200px;
+		opacity: 1;
+		filter: hue-rotate(45deg);
+		left: var(--left);
+	}
+}
