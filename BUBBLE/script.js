@@ -1,3 +1,5 @@
+const counterDisplay = document.querySelector('h3');
+let counter = 0;
 const bubbleMaker = () => {
 	const bubble = document.createElement('span');
 	//J'injecte un <span> ds le body
@@ -17,7 +19,14 @@ const bubbleMaker = () => {
 	//inject var et son contenue
 	//var pour plus et moins aléatoire
 	const minusPlus = Math.random() > 0.5 ? 1 : -1;
-	bubble.style.setProperty(--left, Math.random() * 100 * minusPlus + '%');
+	bubble.style.setProperty('--left', Math.random() * 100 * minusPlus + '%');
+
+	//destruction bulle au clic et incrementation counter
+	bubble.addEventListener('click', () => {
+		counter++;
+		counterDisplay.textContent = counter;
+		bubble.remove();
+	});
 
 	//setTimeout pour effacer bubbles ttes les 8000
 	setTimeout(() => {
