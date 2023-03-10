@@ -64,7 +64,7 @@ document.addEventListener('keypress', (e) => {
 	} else {
 		keyPressContainer.style.background = 'red';
 	}
-	ring(e.key);
+	if (e.key === 'z') ring(e.key);
 });
 
 //SCROLL EVENTS -------------------------
@@ -72,11 +72,45 @@ const nav = document.querySelector('nav');
 
 window.addEventListener('scroll', () => {
 	//Pas besoin de 'e' car ac window.scrollY on a la valeur du scroll
-	console.log(window.scrollY);
+	// console.log(window.scrollY);
 	//Apparition nav qd scroll =>
 	if (window.scrollY > 120) {
 		nav.style.top = 0;
 	} else {
 		nav.style.top = '-50px';
+	}
+});
+
+//FORM EVENTS------------------------------------
+const inputName = document.querySelector('input[type="text"]');
+const select = document.querySelector('select');
+const form = document.querySelector('form');
+let pseudo = '';
+let language = '';
+
+inputName.addEventListener('input', (e) => {
+	//Affiche ce qui est tapé ds l'input
+	// console.log(e.target.value);
+	pseudo = e.target.value;
+	// console.log(pseudo);
+});
+
+select.addEventListener('input', (e) => {
+	language = e.target.value;
+	// console.log(language);
+});
+
+form.addEventListener('submit', (e) => {
+	//Empêche le refresh de la page
+	e.preventDefault();
+	// console.log("c'est validé!");
+	//pas la peine de déclarer les checkbox ou btn car reconnait l'id
+	if (cgv.checked) {
+		document.querySelector('form > div').innerHTML = `
+        <h3>Pseudo : ${pseudo}</h3>
+        <h4>Langage préférés : ${language}</h4>
+        `;
+	} else {
+		alert('Veuillez accepter les CGV');
 	}
 });
