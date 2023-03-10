@@ -114,3 +114,9 @@ form.addEventListener('submit', (e) => {
 		alert('Veuillez accepter les CGV');
 	}
 });
+
+//LOAD EVENT ----------------------------------------
+window.addEventListener('load', () => {
+	//Pratique pour lancer fonctions...etc
+	console.log('Doc chargé !!');
+});
