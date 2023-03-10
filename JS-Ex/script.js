@@ -45,3 +45,24 @@ questionContainer.addEventListener('mouseout', () => {
 response.addEventListener('mouseover', () => {
 	response.style.transform = 'rotate(2deg)';
 });
+
+//KEYPRESS EVENTS -----------(& AUDIO)--------------
+const keyPressContainer = document.querySelector('.keypress');
+const key = document.getElementById('key');
+//Intégrer un audio -ici le param (z) est le nom de l'audio-permet de mettre plusieurs music ds ring
+const ring = (key) => {
+	const audio = new Audio();
+	audio.src = key + '.mp3';
+	audio.play();
+};
+
+document.addEventListener('keypress', (e) => {
+	// console.log(e);
+	key.innerText = "' " + e.key + " '";
+	if (e.key === 'h') {
+		keyPressContainer.style.background = 'blue';
+	} else {
+		keyPressContainer.style.background = 'red';
+	}
+	ring(e.key);
+});
