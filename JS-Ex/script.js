@@ -120,3 +120,13 @@ window.addEventListener('load', () => {
 	//Pratique pour lancer fonctions...etc
 	console.log('Doc chargé !!');
 });
+
+//ForEach ----------------------------------------
+const boxes = document.querySelectorAll('.box');
+
+boxes.forEach((box) => {
+	box.addEventListener('click', (e) => {
+		console.log(e.target);
+		e.target.style.transform = 'scale(.5)';
+	});
+});
