@@ -127,6 +127,6 @@ const boxes = document.querySelectorAll('.box');
 boxes.forEach((box) => {
 	box.addEventListener('click', (e) => {
 		console.log(e.target);
-		e.target.style.transform = 'scale(.5)';
+		// e.target.style.transform = 'scale(.5)';
 	});
 });
