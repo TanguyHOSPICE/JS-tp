@@ -16,6 +16,8 @@ a:visited {
 	color: white;
 	text-decoration: none;
 	transition: 0.3s;
+	z-index: 1000;
+	position: relative; /**pour prendre en compte le z-index et passer au dessus de tous les pos abs*/
 }
 a:hover {
 	font-size: 1.3rem;
@@ -25,6 +27,7 @@ body {
 	background: rgb(27, 27, 27);
 	color: rgb(246, 246, 246);
 	min-height: 100vh;
+	cursor: none; /**Pour enlever la fleche du cursor**/
 }
 nav {
 	display: grid;
@@ -36,37 +39,28 @@ nav ul {
 	display: flex;
 	justify-content: space-between;
 }
-
-.mouseMove {
+.mouse {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	mix-blend-mode: difference;
+}
+#cursor {
 	height: 10px;
 	width: 10px;
-	border: red 1px solid;
-	position: absolute;
-	transform: translate(-50%, -50%);
-	border-radius: 50%;
-	z-index: 100;
+	background-color: blue;
 }
-.mouseMoveMd {
+#circle1 {
 	height: 100px;
 	width: 100px;
-	border: yellow 1px solid;
-	background-color: rgba(255, 255, 0, 0.58);
-	position: absolute;
-	transform: translate(-50%, -50%);
-	border-radius: 50%;
-	mix-blend-mode: luminosity;
-	z-index: 99;
+	background-color: white;
+	transition: 0.15s ease-in-out;
 }
-.mouseMoveFs {
+#circle2 {
 	height: 300px;
 	width: 300px;
-	border: green 1px solid;
-	background-color: rgba(0, 128, 0, 0.469);
-	position: absolute;
-	transform: translate(-50%, -50%);
-	border-radius: 50%;
-	mix-blend-mode: darken;
-	z-index: 98;
+	background-color: rgb(41, 41, 41);
+	transition: 0.25s ease-in-out;
 }
 section {
 	display: flex;
