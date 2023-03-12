@@ -5,3 +5,17 @@
 // S'assurer que les liens sont clickables
 
 // Donner un style de transparence aux 2 plus gros ronds (mix-blend-mode)
+
+const mouseMove = document.querySelector('.mouseMove');
+const mouseMoveMd = document.querySelector('.mouseMoveMd');
+const mouseMoveFs = document.querySelector('.mouseMoveFs');
+
+window.addEventListener('mousemove', (e) => {
+	// console.log(e);
+	mouseMove.style.left = e.pageX + 'px';
+	mouseMove.style.top = e.pageY + 'px';
+	mouseMoveMd.style.left = e.pageX + 'px';
+	mouseMoveMd.style.top = e.pageY + 'px';
+	mouseMoveFs.style.left = e.pageX + 'px';
+	mouseMoveFs.style.top = e.pageY + 'px';
+});
