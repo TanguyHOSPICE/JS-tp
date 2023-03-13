@@ -145,3 +145,14 @@ document.addEventListener(
 	},
 	true
 );
+
+//Stop Propagation --------------------------
+/* Ex:event au click mais on ne veut pas que tous les élts se déclenchent (juste l'elt touché puis on art la propagation)*/
+
+questionContainer.addEventListener('click', (e) => {
+	alert('Test !');
+	e.stopPropagation();
+	//le usecapture précédent se déclenchera puis l'alert et après stoppera le reste (ici le click 1)
+});
+
+//Remove enventListener --------------------------
