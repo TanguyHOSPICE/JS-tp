@@ -126,22 +126,22 @@ const boxes = document.querySelectorAll('.box');
 
 boxes.forEach((box) => {
 	box.addEventListener('click', (e) => {
-		console.log(e.target);
+		// console.log(e.target);
 		// e.target.style.transform = 'scale(.5)';
 	});
 });
 
-//Changement de l'ordre de lecture du navigateur
 //Bubbling => Param de Fin (de base eventListener en bubbling)----------------------
+//Changement de l'ordre de lecture du navigateur
 document.addEventListener('click', () => {
-	console.log('Click 1 !');
+	console.log('Click 1 : bubbling !');
 });
 
 //Usecapture ---------------------
 document.addEventListener(
 	'click',
 	() => {
-		console.log('Click 2 !');
+		console.log('Click 2 : usecapture !');
 	},
 	true
 );
@@ -150,9 +150,101 @@ document.addEventListener(
 /* Ex:event au click mais on ne veut pas que tous les élts se déclenchent (juste l'elt touché puis on art la propagation)*/
 
 questionContainer.addEventListener('click', (e) => {
-	alert('Test !');
-	e.stopPropagation();
+	// alert('Test : stop propagation !');
+	// e.stopPropagation();
 	//le usecapture précédent se déclenchera puis l'alert et après stoppera le reste (ici le click 1)
 });
 
 //Remove enventListener --------------------------
+//Possibilité de retirer un event listener
+
+//BOM = (objet:window)
+//console.log('window.innerHeight : ' + window.innerHeight); //Hauteur fenêtre
+//console.log('window.scrollY : ' + window.scrollY); //Niveau scroll vertical
+//window.open('http://google.com', 'cours js', 'height=600 width=800'); //ouvre ou ferme:window.close() google.com sur recherche cours js avec se style: height=600 width=800
+
+//Event adossé à window---------------
+//ALERT
+//window.alert('hello') = alert('hello')
+
+//CONFIRM
+//Donne le choix de confirmer ou d'annuler une action contrairement à alert
+btn2.addEventListener('click', () => {
+	confirm('Voulez vous confirmer la...suppression...validation...');
+});
+
+//PROMPT
+// Permet au user de rentrer un Elts
+let answer;
+
+btn1.addEventListener('click', () => {
+	let answer = prompt('Entrez votre nom');
+	questionContainer.innerHTML += '<h3>Bravo ' + answer + '</h3>';
+});
+
+//SET TimeOut
+setTimeout(() => {
+	//instruction à exécuter
+}, 'temps en millisecondes avant de déclencher');
+
+//SET Intervall
+setInterval(() => {
+	//instruction à exécuter
+}, 'temps en millisecondes déclenche toute les millisecondes');
+
+//OU
+let interval = setInterval(() => {
+	//instruction à exécuter
+}, 'temps en millisecondes déclenche toute les millisecondes');
+
+//Pour stopper
+document.body.addEventListener('click', () => {
+	clearInterval(interval);
+});
+
+//location
+console.log(location.href); //site ou l'on setrouve ou le user se trouve
+console.log(location.host); //'nom' du site
+console.log(location.pathname); //l'elt après le host
+console.log(location.search); //l'elt après le search(?...)
+console.log(location.replace('redirige vers liens'));
+
+//Navigator
+console.log(navigator.userAgent); //infos sur notre navigation (!privée)
+
+//peux nous géocaliser sans passer par une API
+//mdn: Geolocation.getCurrentPosition()
+var options = {
+	enableHighAccuracy: true,
+	timeout: 5000,
+	maximumAge: 0,
+};
+
+function success(pos) {
+	var crd = pos.coords;
+
+	console.log('Votre position actuelle est :');
+	console.log(`Latitude : ${crd.latitude}`);
+	console.log(`Longitude : ${crd.longitude}`);
+	console.log(`La précision est de ${crd.accuracy} mètres.`);
+}
+
+function error(err) {
+	console.warn(`ERREUR (${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+
+//Possibilité de se géolocaliser ou l'on veut
+// navigateur => inspecter =>parametres => locations
+
+//HISTORY
+console.log(history);
+window.history.back(); //revenir en arrière
+history.go(-2); //retour 2 pages avant
+
+//SET Property ---------------
+window.addEventListener('mousemove', (e) => {
+	nav.style.setProperty('--x', e.layerX + 'px');
+	nav.style.setProperty('--y', e.layerY + 'px');
+});
