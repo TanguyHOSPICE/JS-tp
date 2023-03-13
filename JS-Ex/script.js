@@ -1,6 +1,6 @@
 const questionContainer = document.querySelector('.click-event');
-const btn1 = document.querySelector('#btn-1');
-const btn2 = document.getElementById('btn-2');
+const btn1 = document.querySelector('#btn1');
+const btn2 = document.getElementById('btn2');
 const response = document.querySelector('p');
 //Priorité sélection: # > . > tag
 //CLICK EVENT----------------------------------
@@ -130,3 +130,18 @@ boxes.forEach((box) => {
 		// e.target.style.transform = 'scale(.5)';
 	});
 });
+
+//Changement de l'ordre de lecture du navigateur
+//Bubbling => Param de Fin (de base eventListener en bubbling)----------------------
+document.addEventListener('click', () => {
+	console.log('Click 1 !');
+});
+
+//Usecapture ---------------------
+document.addEventListener(
+	'click',
+	() => {
+		console.log('Click 2 !');
+	},
+	true
+);
