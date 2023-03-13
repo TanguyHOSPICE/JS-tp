@@ -7,3 +7,19 @@
 
 // Aide
 // Priorités en CSS : id > classe > baliseHtml
+const sidebar = document.querySelector('#side-bar');
+const content = document.querySelector('.content');
+
+const sidebarAppearance = () => {
+	btn.addEventListener('click', () => {
+		//apparition ou disparition sidebar
+		sidebar.classList.toggle('active');
+	});
+};
+
+//SECTION
+content.addEventListener('click', () => {
+	sidebar.classList.remove('active');
+});
+
+sidebarAppearance();
