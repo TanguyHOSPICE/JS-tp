@@ -65,14 +65,39 @@ const insertAllWords = () => {
 		const textLetter = document.createElement('span');
 		insert.appendChild(textLetter);
 		//J'insert ds span le mot ou lettre
-		textLetter.textContent = wordsOfText[0][0];
+		textLetter.textContent = wordsOfText[textWordIndex][textLetterIndex];
 
 		//Suppression des mots après un tps donné
 		/* setTimeout(() => {
 			textLetter.remove();
 		}, 10000); */
 	};
-	createTextLetter();
+
+	//-Récursivité
+	const textLoop = () => {
+		//Si tbl de mots est >= longueur du  même tbl
+		if (wordsOfText >= wordsOfText.length) {
+			//Reinitialisation des index
+			textWordIndex = 0;
+			textLetterIndex = 0;
+			textLoop();
+		}
+		//loop dans chq mots
+		if (textLetterIndex < wordsOfText[textWordIndex].length) {
+			//Crée un lettre
+			createTextLetter();
+			//Incrémentation des lettres
+			textLetterIndex++;
+			textLoop();
+		} else {
+			//changement de mots
+			textWordIndex++;
+			//Réinitialisation de l'index des lettres
+			textLetterIndex = 0;
+			textLoop();
+		}
+	};
+	textLoop();
 };
 
 insertAllWords();
