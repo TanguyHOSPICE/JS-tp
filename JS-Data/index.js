@@ -169,4 +169,6 @@ arrayNumber.push('coucou');
 //FILTER, SORT, MAP
 //console.log(arrayNumber.filter((number) => number > 20)); //- [74, 28]
 //console.log(arrayNumber.sort((a, b) => b - a));
-document.body.innerHTML += arrayNumber.map((number) => `<li> ${number}</li>`).join(' ');
+document.body.innerHTML += arrayNumber
+	.map((number) => `<li> ${number}</li>`)
+	.join(' ');
