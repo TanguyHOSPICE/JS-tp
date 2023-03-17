@@ -59,7 +59,7 @@ const insertAllWords = () => {
 
 	//Insérer les mots ds un tbl
 	let wordsOfText = text.textContent.split(' ');
-
+	console.log(wordsOfText.join(' '));
 	//-Création lettres
 	const createTextLetter = () => {
 		const textLetter = document.createElement('span');
@@ -72,11 +72,11 @@ const insertAllWords = () => {
 			textLetter.remove();
 		}, 10000); */
 	};
-
 	//-Récursivité
 	const textLoop = () => {
 		//Si tbl de mots est >= longueur du  même tbl
 		if (wordsOfText >= wordsOfText.length) {
+			
 			//Reinitialisation des index
 			textWordIndex = 0;
 			textLetterIndex = 0;
@@ -94,6 +94,7 @@ const insertAllWords = () => {
 			textWordIndex++;
 			//Réinitialisation de l'index des lettres
 			textLetterIndex = 0;
+
 			textLoop();
 		}
 	};

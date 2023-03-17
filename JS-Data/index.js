@@ -12,7 +12,7 @@ let data = [
 		admin: false,
 	},
 	{
-		pseudo: 'Hubert',
+		pseudo: 'Huberts',
 		age: 34,
 		techno: ['PHP', 'React', 'Symfony'],
 		admin: true,
@@ -163,12 +163,29 @@ let arrayNumber = [4, 74, 28, 12, 1];
 //REDUCE
 //console.log(arrayNumber.reduce((x, y) => x + y)); //- 119 - applique une fonction qui est un « accumulateur » et qui traite chaque valeur d'une liste (de la gauche vers la droite) afin de la réduire à une seule valeur
 //PUSH - Ajout
-arrayNumber.push('coucou');
+//arrayNumber.push('coucou');
 //console.log(arrayNumber); //- [4, 74, 28, 12, 1, 'coucou']
 
 //FILTER, SORT, MAP
 //console.log(arrayNumber.filter((number) => number > 20)); //- [74, 28]
 //console.log(arrayNumber.sort((a, b) => b - a));
-document.body.innerHTML += arrayNumber
+/* document.body.innerHTML += arrayNumber
 	.map((number) => `<li> ${number}</li>`)
-	.join(' ');
+	.join(' '); */
+
+
+// Methods OBJETS
+document.body.innerHTML += data
+	.filter((user) => user.pseudo.includes('s') || user.pseudo.includes('S'))//affiche que les pseudo incluant 's' ou 'S'
+  .sort((a,b) => b.age - a.age)//Range le "map" du + vieux au +jeune
+	.map(
+		(user) =>
+		`
+		<div class="user-card">
+			<h2>${user.pseudo}</h2>
+			<p>Age : ${user.age} ans</p>
+			<p>Status : ${user.admin ? 'Moderateur' : 'Membre'}</p>
+		</div>
+		`
+	)//Map "est celui qui affiche en dernier"
+	.join('')//Enlève les ',' entre les objets
