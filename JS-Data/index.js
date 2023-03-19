@@ -189,3 +189,89 @@ document.body.innerHTML += data
 		`
 	)//Map "est celui qui affiche en dernier"
 	.join('')//Enlève les ',' entre les objets
+
+
+//-Les dates
+// Date classique
+let date = new Date();
+// console.log(date);
+
+// Timestamp
+let timestamp = Date.parse(date);
+// console.log(timestamp);
+
+// IsoString
+let iso = date.toISOString();
+// console.log(iso);
+
+function dateParser(chaine) {
+  let newDate = new Date(chaine).toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    // hour: "numeric",
+    // minute: "numeric",
+  });
+  return newDate;
+}
+
+// console.log(dateParser(date));
+// console.log(dateParser(timestamp));
+// console.log(dateParser(iso));
+
+
+// Destructuring
+
+let moreData = {
+  destVar: ["Element 1", "Element 2"],
+};
+
+const { destVar } = moreData;
+
+// console.log(moreData.destVar);
+// console.log(destVar);
+
+let array6 = [70, 80, 90];
+let [x, y, z] = array6;
+// console.log(x);//70
+// console.log(y);//80
+// console.log(z);//90
+
+const dateDestructuring = (chaine) => {
+  let newDate = chaine.split("T")[0];//Séparation date et timestamp
+  let [y, m, d] = newDate.split("-");//Enlève les "-"
+  return [d, m, y].join("/");
+};
+// console.log(dateDestructuring(iso));
+
+
+// Les Datasets
+
+
+const h3js = document.getElementById("javascript");
+// console.log(h3js.dataset.lang);
+
+const h3 = document.querySelectorAll("h3");
+// h3.forEach((language) => console.log(language.dataset.lang));
+
+
+// Les Regex
+
+let mail = "from_s$cratch33@gmail.com";
+// console.log(mail.search(/frscceeceom/));
+
+// console.log(mail.replace(/from/, "de"));
+// console.log(mail.match(/SCratch/i));
+// console.log(mail.match(/[zug]/));
+// console.log(mail.match(/[12]/));
+
+// Tous les chiffres
+// console.log(mail.match(/\d/));
+
+// Matcher toutes les lettres
+// console.log(mail.match(/[a-z]/));
+
+// console.log(mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i));
+
+let separator = 265264849;
+// console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
