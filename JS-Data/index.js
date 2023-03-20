@@ -246,8 +246,6 @@ const dateDestructuring = (chaine) => {
 
 
 // Les Datasets
-
-
 const h3js = document.getElementById("javascript");
 // console.log(h3js.dataset.lang);
 
@@ -256,22 +254,21 @@ const h3 = document.querySelectorAll("h3");
 
 
 // Les Regex
-
 let mail = "from_s$cratch33@gmail.com";
-// console.log(mail.search(/frscceeceom/));
+console.log(mail.search(/frscceeceom/)); // -1 - il n'y a pas
 
-// console.log(mail.replace(/from/, "de"));
-// console.log(mail.match(/SCratch/i));
-// console.log(mail.match(/[zug]/));
-// console.log(mail.match(/[12]/));
+console.log(mail.replace(/from/, "de")); // remplace 'from' par 'de'
+console.log(mail.match(/SCratch/i)); // null -
+console.log(mail.match(/[zug]/));// est ce que tu trouve au moins une de ces lettres?
+console.log(mail.match(/[12]/));
 
 // Tous les chiffres
-// console.log(mail.match(/\d/));
+console.log(mail.match(/\d/));
 
 // Matcher toutes les lettres
-// console.log(mail.match(/[a-z]/));
+console.log(mail.match(/[a-z]/));
 
-// console.log(mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i));
+console.log(mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i));
 
 let separator = 265264849;
-// console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
+console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
