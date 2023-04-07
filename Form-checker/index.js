@@ -103,7 +103,11 @@ const passwordChecker = (value) => {
     password = null;
   } else if (value.length < 12) {
     progressBar.classList.add('progressBlue');
-    errorDisplay('password', '', true);
+    errorDisplay(
+      'password', 
+      '', 
+      true
+    );
     password = value;
   } else {
     progressBar.classList.add('progressGreen');
