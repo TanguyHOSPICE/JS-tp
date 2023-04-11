@@ -1,0 +1,21 @@
+{
+  "posts": [
+    {
+      "pseudo": "Htcvhs",
+      "message": "Je suis le mess de Htcvhs",
+      "id": 1
+    },
+    {
+      "pseudo": "Htcvhs",
+      "message": "Je suis le mess 3 de Htcvhs",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "pseudo": "Htcvhs",
+      "age": 25,
+      "id": 1
+    }
+  ]
+}
