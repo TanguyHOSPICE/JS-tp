@@ -112,7 +112,33 @@ const init4 = {
 	mode: 'cors',
 	credentials: 'same-origin',
 };
-
+/* 
 document.querySelector('form').addEventListener('submit', () => {
 	fetch('http://localhost:3000/users', init4).then(() => console.log('data envoyée'));
 });
+ */
+
+/* ----- ASYNC ----- */
+//1ier façon - setTimeout
+setTimeout(() => {
+	console.log("test d'async setTimeout après 2s");
+}, 2000);
+
+//2ieme façon - promise
+fetch('monLien').then((res) => {
+	//tu vas me faire ... et quand tu auras fini tu me renvoi le résultat: res. ...
+});
+
+//3ieme façon - async ... await
+// je déclare une fonction async et tu attendras chaque fois que tu auras un await
+async function maFonction() {
+	await fetch('monLien');
+
+	await executeFunction;
+	await console.log("test d'async await");
+}
+//OU
+const fetchData2 = async () => {
+	await fetch('monLien');
+	await console.log("test d'async await");
+};
