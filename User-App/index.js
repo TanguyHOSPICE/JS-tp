@@ -28,6 +28,17 @@ const displayUsers = async () => {
 		return newDate;
 	};
 
+	//8-fonction pour calculer le nombre de jours depuis l'inscription
+	const daysSince = (date) => {
+		//date du jrs
+		let today = new Date();
+		let todayTimestamp = Date.parse(today);
+
+		let timestamp = Date.parse(date);
+		//soustraire la date d'inscription de la date du jour et diviser par 8.64e7 pour avoir le nb de jours
+		return Math.ceil((todayTimestamp - timestamp) / 8.64e7);
+	};
+
 	document.body.innerHTML = usersData
 		.map(
 			//chq tour de boucle, on recupere un user ds une card
@@ -37,7 +48,7 @@ const displayUsers = async () => {
         <img src="${user.picture.large}" alt="photo de ${user.name.first}" />
         <h3>${user.name.first} ${user.name.last}</h3>
         <p>${user.location.city}, ${dateParser(user.dob.date)}</p>
-        <em>Membre depuis : ${user.registered.date} jours</em>
+        <em>Membre depuis : ${daysSince(user.registered.date)} jours</em>
       </div>  
       `
 		)
