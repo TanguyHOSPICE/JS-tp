@@ -153,8 +153,38 @@ fetch('data.json')
 	.then((data) => {
 		//stringify => converti un objet js en chaine de caractère
 		let settings = JSON.stringify(data);
-		console.log(settings);
+		// console.log(settings);
 		//parse => converti json en objet js
 		let settings2 = JSON.parse(settings);
-		console.log(settings2);
+		// console.log(settings2);
 	});
+
+/**-----Web API : API du navigateur------- */
+// geolocation/canvas/history/client storage... (voir doc MDN)
+
+//CLIENT STORAGE
+//------------
+//?localStorage/sessionStorage : stockage de données dans le navigateur
+//----Capacité de stockage de 5Mo (sur firefox 10Mo) contrairement aux cookies qui ne peuvent pas dépasser 4Ko
+//avantages données ne transitent pas sur le réseau (stockage côté client)
+//Ds console => Application => Storage => Local Storage
+//stockage de données en clé/valeur
+localStorage.data = 'Je stock la data dans le local storage';
+//Récupération de la donnée
+// console.log(localStorage.data);
+//OU a l'écran
+// document.body.innerHTML = localStorage.data;
+//Suppression de la donnée
+// localStorage.removeItem('data');
+
+//pour les objets
+const obj = {
+	name: 'Denis',
+	age: 25,
+	city: 'Paris',
+};
+// Il faut convertir l'objet en chaine de caractère car ne lit pas les objets:
+// localStorage.user = obj; //ne fonctionne pas
+localStorage.user = JSON.stringify(obj);
+// transforme json en objet js
+console.log(JSON.parse(localStorage.user));
