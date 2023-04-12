@@ -31,17 +31,32 @@ const mealsDisplay = () => {
 		meals.length = 12;
 		//9- boucle qui affiche les données dans le DOM avec chaque plat = meal
 		result.innerHTML = meals
-			.map(
-				(meal) =>
-					`
-      <li class="card">
-        <h2>${meal.strMeal}</h2>
-        <p>${meal.strArea}</p>
-        <img src="${meal.strMealThumb}" alt="photo ${meal.strMeal}" />
-        <ul></ul>
-      </li>
-    `
-			)
+			.map((meal) => {
+				//17-déclaration de la variable qui stocke les ingrédients
+				let ingredients = [];
+
+				//16-boucle qui affiche les ingrédients
+				for (i = 1; i < 21; i++) {
+					if (meal[`strIngredient${i}`]) {
+						//18- on stocke chq ingrédient dans la variable ingredient et on ajoute la mesure
+						let ingredient = meal[`strIngredient${i}`];
+						let measure = meal[`strMeasure${i}`];
+						//19- on ajoute les ingrédients dans le tableau ingredients
+						ingredients.push(`<li> ${ingredient} - ${measure}</li>`);
+					}
+				}
+
+				//console.log(ingredients);//19bis- on affiche les ingrédients dans la console
+
+				return `
+          <li class="card">
+            <h2>${meal.strMeal}</h2>
+            <p>${meal.strArea}</p>
+            <img src="${meal.strMealThumb}" alt="photo ${meal.strMeal}" />
+            <ul>${ingredients.join('')}</ul>
+          </li>
+        `;
+			})
 			.join(''); //9bis- join pour enlever les virgules
 	}
 };
