@@ -23,13 +23,17 @@ const fetchMeals = async (search) => {
 //----------
 //7-fonction qui affiche les données dans le DOM
 const mealsDisplay = () => {
-	//8-affichage de seulement 12 plats
-	meals.length = 12;
-	//9- boucle qui affiche les données dans le DOM avec chaque plat = meal
-	result.innerHTML = meals
-		.map(
-			(meal) =>
-				`
+	//15- si la valeur de l'input est vide, on affiche un message d'erreur
+	if (meals === null) {
+		result.innerHTML = '<h2>Aucun résultat</h2>';
+	} else {
+		//8-affichage de seulement 12 plats
+		meals.length = 12;
+		//9- boucle qui affiche les données dans le DOM avec chaque plat = meal
+		result.innerHTML = meals
+			.map(
+				(meal) =>
+					`
       <li class="card">
         <h2>${meal.strMeal}</h2>
         <p>${meal.strArea}</p>
@@ -37,8 +41,9 @@ const mealsDisplay = () => {
         <ul></ul>
       </li>
     `
-		)
-		.join(''); //9bis- join pour enlever les virgules
+			)
+			.join(''); //9bis- join pour enlever les virgules
+	}
 };
 //----------
 //12- écouteur d'événement sur l'input
