@@ -185,6 +185,11 @@ const obj = {
 };
 // Il faut convertir l'objet en chaine de caractère car ne lit pas les objets:
 // localStorage.user = obj; //ne fonctionne pas
-localStorage.user = JSON.stringify(obj);
+// localStorage.user = JSON.stringify(obj);
 // transforme json en objet js
-console.log(JSON.parse(localStorage.user));
+// console.log(JSON.parse(localStorage.user));
+
+//?sessionStorage : stockage de données dans le navigateur pendant la session de navigation de l'utilisateur (fermeture de la fenêtre)
+// sessionStorage.dataSettings = 'Je stock "55px" dans le session storage';
+
+//?Cookies : stockage de données côté serveur
