@@ -51,10 +51,10 @@ fetch('data.txt')
  */
 
 //json
-fetch('https://jsonplaceholder.typicode.com/posts')
+/* fetch('https://jsonplaceholder.typicode.com/posts')
 	.then((res) => res.json())
 	.then((data) => console.log(data)); //renvoi un tableau d'objets on choisit l'objet qu'on veut afficher avec son index
-
+ */
 //Tu vas me chercher un objet js : myHeaders
 const myHeaders = new Headers();
 
@@ -65,7 +65,7 @@ const init = {
 	cache: 'default',
 };
 
-fetch('data.json', init).then((res) => console.log(res));
+// fetch('data.json', init).then((res) => console.log(res));
 
 //Simulation d'un serveur : BIBLIOTHEQUE json-server (nodejs=>npm -v =>npm init -y =>npm i -g json-server =>creer un fichier db.json : {'posts:[]'//on y enverra des posts}=> json-server --watch db.json)
 const init2 = {
@@ -120,14 +120,14 @@ document.querySelector('form').addEventListener('submit', () => {
 
 /* ----- ASYNC ----- */
 //1ier façon - setTimeout
-setTimeout(() => {
+/* setTimeout(() => {
 	console.log("test d'async setTimeout après 2s");
-}, 2000);
+}, 2000); */
 
 //2ieme façon - promise
-fetch('monLien').then((res) => {
+/* fetch('monLien').then((res) => {
 	//tu vas me faire ... et quand tu auras fini tu me renvoi le résultat: res. ...
-});
+}); */
 
 //3ieme façon - async ... await
 // je déclare une fonction async et tu attendras chaque fois que tu auras un await
@@ -141,4 +141,20 @@ async function maFonction() {
 const fetchData2 = async () => {
 	await fetch('monLien');
 	await console.log("test d'async await");
+
+	//executeFunction();
 };
+
+/**-----JSON------- */
+
+//METHOD .json() => méthod qui s'auto-résout en renvoyant le body de la requete
+fetch('data.json')
+	.then((res) => res.json())
+	.then((data) => {
+		//stringify => converti un objet js en chaine de caractère
+		let settings = JSON.stringify(data);
+		console.log(settings);
+		//parse => converti json en objet js
+		let settings2 = JSON.parse(settings);
+		console.log(settings2);
+	});

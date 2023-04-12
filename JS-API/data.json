@@ -1,16 +1,13 @@
 {
 	"window.zoomLevel": 2,
-	// ? WORKBENCH:
-	"workbench.colorTheme": "One Dark Pro", // *"Visual Studio Light",
+	"workbench.colorTheme": "One Dark Pro",
 	"liveServer.settings.donotShowInfoMsg": true,
 	"workbench.iconTheme": "material-icon-theme",
-	"workbench.tree.indent": 20, // * Indentation des fichiers ds explorer
-	"workbench.tree.renderIndentGuides": "always", // *Surligne les files explorer
-	// ? EXPLORER:
-	"explorer.compactFolders": "on", // *Arborescence files,on en cascade
-	"explorer.autoReveal": false, // *Ouverture dossier ds ecran
-	"explorer.confirmDragAndDrop": true, // *MESS:confirmation du Drag&Drop =true
-	//  ? PRETTIER
+	"workbench.tree.indent": 20,
+	"workbench.tree.renderIndentGuides": "always",
+	"explorer.compactFolders": "on",
+	"explorer.autoReveal": false,
+	"explorer.confirmDragAndDrop": true,
 	"prettier.tabWidth": 2,
 	"prettier.printWidth": 100,
 	"prettier.useTabs": true,
@@ -23,15 +20,14 @@
 	],
 	"prettier.bracketSameLine": true,
 	"prettier.singleAttributePerLine": true,
-	// ?    EDITOR:
 	"editor.tabSize": 2,
 	"editor.minimap.enabled": false,
 	"editor.formatOnSave": true,
 	"editor.wordWrapColumn": 100,
-	"editor.wordWrap": "on", // *Wrap txt du window = on
-	"editor.renderWhitespace": "trailing", // *Espace de tabulation ou écart
-	"editor.linkedEditing": true, // *lors select tag change le tag de début et fin
-	"editor.occurrencesHighlight": false, //*surlignage de mots
-	"editor.suggest.insertMode": "replace", //*Insertion des suggestions
+	"editor.wordWrap": "on",
+	"editor.renderWhitespace": "trailing",
+	"editor.linkedEditing": true,
+	"editor.occurrencesHighlight": false,
+	"editor.suggest.insertMode": "replace",
 	"editor.defaultFormatter": "esbenp.prettier-vscode"
 }
