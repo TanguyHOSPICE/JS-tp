@@ -191,5 +191,13 @@ const obj = {
 
 //?sessionStorage : stockage de données dans le navigateur pendant la session de navigation de l'utilisateur (fermeture de la fenêtre)
 // sessionStorage.dataSettings = 'Je stock "55px" dans le session storage';
+//sessionStorage.clear(); //supprime toutes les données du sessionStorage
 
-//?Cookies : stockage de données côté serveur
+//?Cookies : stockage de données côté serveur (envoyé d'un serveur à un navigateur web et stocké par le navigateur)
+//Ds console => Application => Storage => cookies
+//OU affichage des cookies
+console.log(document.cookie);
+//Ajout d'un cookie pendant le tps de la session
+document.cookie = 'username=Denis';
+//Ajout d'un cookie avec une date d'expiration
+document.cookie = 'pseudo=Alan; path=/; max-age=3600; secure; samesite '; //3600s = 1h //secure => cookie envoyé uniquement en https //samesite => cookie envoyé uniquement si le site est le même que celui du cookie
