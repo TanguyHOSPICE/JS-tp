@@ -8,8 +8,12 @@ const inputSearch = document.getElementById('inputSearch');
 const inputRange = document.getElementById('inputRange');
 // 6ter - declarer une variable pour lier l'inputRange et le rangeValue (input & span)
 const rangeValue = document.getElementById('rangeValue');
+// 7bis - declarer une variable pour récupérer la classe du bouton cliqué
+const btnSort = document.querySelectorAll('.btnSort');
 // 3 - Passer les données à une variable
 let countriesData = [];
+// 7ter - declarer une variable sortMethod pour trier les pays
+let sortMethod = 'maxToMin'; //!provisoire
 
 // 4quater - Créer une fonction pour capitaliser la première lettre du nom du pays
 const capitalizeFirstLetter = (string) => {
@@ -38,8 +42,18 @@ const displayCountries = () => {
 	result.innerHTML = countriesData
 		.filter((country) =>
 			country.translations.fra.common.toLowerCase().includes(inputSearch.value.toLowerCase())
-		) // 5 - récupérer ce qui est tapé dans l'input et filtrer (avant le map) les données avec la methode includes et toLowerCase lors de la saisie // coutry.name.includes(inputSearch.value);
+		) // 5 - récupérer ce qui est tapé dans l'input et filtrer (avant le map) les données avec la methode includes et toLowerCase lors de la saisie ATTENTION: plusieurs lignes mettre des return // coutry.name.includes(inputSearch.value);
 		.slice(0, inputRange.value) // 6 - Avec la méthode Slice gérer le nombre de pays affichés (inputRange.value)
+		.sort((a, b) => {
+			// 7ter - trier les pays avec la méthode sort ATTENTION: plusieurs lignes mettre des return
+			if (sortMethod === 'minToMax') {
+				return a.population - b.population;
+			} else if (sortMethod === 'maxToMin') {
+				return b.population - a.population;
+			} else if (sortMethod === 'alpha') {
+				return a.translations.fra.common.localeCompare(b.translations.fra.common);
+			}
+		})
 		.map((country) => {
 			return `
         <li class="card">
@@ -58,8 +72,6 @@ const displayCountries = () => {
 		.join('');
 };
 
-// 7 - Gérer les 3 boutons pour trier (méthode sort()) les pays
-
 // ----------------- //
 // 2bis -appel de la fonction au chargement de la page
 window.addEventListener('load', fetchCountries);
@@ -69,4 +81,13 @@ inputSearch.addEventListener('input', displayCountries);
 inputRange.addEventListener('input', () => {
 	displayCountries();
 	rangeValue.textContent = inputRange.value; //6ter - Lier l'inputRange et le rangeValue (input & span)
+});
+// 7bis - on regroupe les 3 boutons dans un tableau et on boucle dessus avec la méthode forEach
+btnSort.forEach((btn) => {
+	btn.addEventListener('click', (e) => {
+		// 7bis - on récupère l'id du bouton cliqué
+		sortMethod = e.target.id;
+		// 7bis - on appelle la fonction displayCountries
+		displayCountries();
+	});
 });
