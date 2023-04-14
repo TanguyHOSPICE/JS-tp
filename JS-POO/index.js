@@ -31,7 +31,7 @@ const obj = {
 //checker si une propriété existe
 //console.log(obj.hasOwnProperty('pseudo')); //true
 //console.log('ville' in obj); //false
-
+/*
 //Parcourir un objet
 for (let key in obj) {
 	console.log(key, obj[key]);
@@ -61,3 +61,16 @@ Object.keys(obj).forEach(function (key) {
 Object.keys(obj).forEach((key) => console.log(key + ':' + obj[key]));
 //Parcourir un objet avec forEach ES6 + destructuring
 Object.keys(obj).forEach((key) => console.log(`${key} : ${obj[key]}`));
+*/
+//METHODE NATIVE A JS
+//Obtenir les clés d'un objet
+const keys = Object.keys(obj);
+console.log(keys); //['pseudo', 'ville', 'admin', 'direBonjour', 'direBonjour2']
+
+//Obtenir les valeurs d'un objet
+const values = Object.values(obj);
+console.log(values); //['John', 'Paris', false, ƒ, ƒ]
+
+//Obtenir les clés et les valeurs d'un objet sous forme de tableau
+const nestedArray = Object.entries(obj);
+console.log(nestedArray); //[['pseudo', 'John'], ['ville', 'Paris'], ['admin', false], ['direBonjour', ƒ], ['direBonjour2', ƒ]]
