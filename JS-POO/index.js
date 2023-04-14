@@ -65,7 +65,7 @@ Object.keys(obj).forEach((key) => console.log(`${key} : ${obj[key]}`));
 //METHODE NATIVE A JS
 //Obtenir les clés d'un objet
 const keys = Object.keys(obj);
-console.log(keys); //['pseudo', 'ville', 'admin', 'direBonjour', 'direBonjour2']
+//console.log(keys); //['pseudo', 'ville', 'admin', 'direBonjour', 'direBonjour2']
 
 //Obtenir les valeurs d'un objet
 const values = Object.values(obj);
@@ -73,4 +73,21 @@ console.log(values); //['John', 'Paris', false, ƒ, ƒ]
 
 //Obtenir les clés et les valeurs d'un objet sous forme de tableau
 const nestedArray = Object.entries(obj);
-console.log(nestedArray); //[['pseudo', 'John'], ['ville', 'Paris'], ['admin', false], ['direBonjour', ƒ], ['direBonjour2', ƒ]]
+//console.log(nestedArray); //[['pseudo', 'John'], ['ville', 'Paris'], ['admin', false], ['direBonjour', ƒ], ['direBonjour2', ƒ]]
+
+//Fusionner plusieurs objets
+const obj1 = {
+	taille: '1.80m',
+	poids: '80kg',
+};
+
+const fusion = Object.assign(obj, obj1);
+//console.log(fusion); //{pseudo: 'John', ville: 'Paris', admin: false, direBonjour: ƒ, direBonjour2: ƒ, taille: '1.80m', poids: '80kg'}
+
+//Empecher la modification et l'ajout d'un objet
+//const newObj = Object.freeze(obj);
+//Empeche l'ajout et la suppression de propriété mais permet la modification
+const newObj = Object.seal(obj);
+newObj.pseudo = 'Test';
+newObj.adresse = '42 av. du code';
+console.log(newObj); //{pseudo: 'Test', ville: 'Paris', admin: false, direBonjour: ƒ, direBonjour2: ƒ}
