@@ -122,3 +122,23 @@ function createUser(pseudo, ville) {
 
 const user3 = createUser('Denis', 'Nantes');
 console.log(user3); //{pseudo: 'Denis', ville: 'Nantes', getCity: ƒ}
+
+//Créer un objet avec une class
+class Utilisateur {
+	constructor(pseudo, ville) {
+		this.pseudo = pseudo;
+		this.ville = ville;
+	}
+	sayTheCity = function () {
+		return this.pseudo + ' habite à ' + this.ville;
+	};
+}
+
+const user4 = new Utilisateur('Samia', 'Lyon');
+console.log(user4); //Utilisateur {pseudo: 'Samia', ville: 'Lyon', sayTheCity: ƒ}
+
+Utilisateur.prototype.sayHello = function () {
+	return 'Bonjour je suis ' + this.pseudo;
+};
+console.log(user4);
+console.log(user4.sayHello()); //Bonjour je suis Samia
