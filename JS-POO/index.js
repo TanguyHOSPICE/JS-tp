@@ -33,5 +33,31 @@ const obj = {
 //console.log('ville' in obj); //false
 
 //Parcourir un objet
-//for (let key in obj) {console.log(key, obj[key])}
-//for (let key of Object.keys(obj)) {}
+for (let key in obj) {
+	console.log(key, obj[key]);
+}
+
+//OU
+
+for (let key of Object.keys(obj)) {
+	console.log(key + ':' + obj[key]);
+}
+//Parcourir un objet ES6
+for (let [key, value] of Object.entries(obj)) {
+	console.log(key, value);
+}
+//Parcourir un objet ES6 avec destructuring
+for (let [key, value] of Object.entries(obj)) {
+	console.log(`${key} : ${value}`);
+}
+
+//OU
+
+//Parcourir un objet avec forEach
+Object.keys(obj).forEach(function (key) {
+	console.log(key + ':' + obj[key]);
+});
+//Parcourir un objet avec forEach ES6
+Object.keys(obj).forEach((key) => console.log(key + ':' + obj[key]));
+//Parcourir un objet avec forEach ES6 + destructuring
+Object.keys(obj).forEach((key) => console.log(`${key} : ${obj[key]}`));
