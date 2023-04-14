@@ -108,3 +108,17 @@ const user2 = new User('Jane', 'Lyon');
 console.log(user1); //User {pseudo: 'John', ville: 'Paris'}
 console.log(user2); //User {pseudo: 'Jane', ville: 'Lyon'}
 console.log(user1.getCity()); //John habite à Paris
+
+//Créer un objet avec une factory functions
+function createUser(pseudo, ville) {
+	return {
+		pseudo,
+		ville,
+		getCity() {
+			return this.pseudo + ' habite à ' + this.ville;
+		},
+	};
+}
+
+const user3 = createUser('Denis', 'Nantes');
+console.log(user3); //{pseudo: 'Denis', ville: 'Nantes', getCity: ƒ}
