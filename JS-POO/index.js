@@ -90,4 +90,21 @@ const fusion = Object.assign(obj, obj1);
 const newObj = Object.seal(obj);
 newObj.pseudo = 'Test';
 newObj.adresse = '42 av. du code';
-console.log(newObj); //{pseudo: 'Test', ville: 'Paris', admin: false, direBonjour: ƒ, direBonjour2: ƒ}
+//console.log(newObj); //{pseudo: 'Test', ville: 'Paris', admin: false, direBonjour: ƒ, direBonjour2: ƒ}
+
+/**--------------Construire des Objets----------------- */
+//Créer un objet avec une fonction Constructeur
+function User(pseudo, ville) {
+	this.pseudo = pseudo;
+	this.ville = ville;
+
+	this.getCity = function () {
+		return this.pseudo + ' habite à ' + this.ville;
+	};
+}
+//instancier un objet
+const user1 = new User('John', 'Paris');
+const user2 = new User('Jane', 'Lyon');
+console.log(user1); //User {pseudo: 'John', ville: 'Paris'}
+console.log(user2); //User {pseudo: 'Jane', ville: 'Lyon'}
+console.log(user1.getCity()); //John habite à Paris
